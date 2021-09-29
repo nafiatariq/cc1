@@ -44,6 +44,7 @@ let covid19Image;
 
 
 function preload () {
+//Loading covid19 image 
   covid19Image = loadImage("assets/images/virus.png");
 }
 
