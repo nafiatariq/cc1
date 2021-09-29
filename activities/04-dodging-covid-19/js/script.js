@@ -25,6 +25,8 @@ let user = {
   size: 100,
   fill: 255
 };
+
+let numStatic = 1000;
 /**
 Description of setup
 */
@@ -33,6 +35,8 @@ function setup() {
 
   covid19.y = random(0,height);
   covid19.vx = covid19.speed;
+
+  noCursor();
 }
 
 
@@ -41,6 +45,13 @@ Description of draw()
 */
 function draw() {
   background(0);
+
+for (let i = 0; i < numStatic; i++){
+  let x = random(0,width);
+  let y = random(0,height);
+  stroke(255);
+  point(x,y);
+}
 
   covid19.x = covid19.x + covid19.vx;
   covid19.y = covid19.y + covid19.vy;
