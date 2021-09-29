@@ -23,13 +23,14 @@ let user = {
   x: 250,
   y: 250,
   size: 100,
-  fill: 255
+  vx: 0,
+  vy: 0,
+  fill: 255,
 };
 
 let numStatic = 1000;
-/**
-Description of setup
-*/
+
+
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
@@ -40,9 +41,6 @@ function setup() {
 }
 
 
-/**
-Description of draw()
-*/
 function draw() {
   background(0);
 
@@ -52,6 +50,19 @@ for (let i = 0; i < numStatic; i++){
   stroke(255);
   point(x,y);
 }
+
+  if (mouseX < covid19.x){
+    covid19.vx = -covid19.speed/2;
+  }
+  else {
+    covid19.vx = covid19.speed/2;
+  }
+  if (mouseY < covid19.y){
+    covid19.vy = -covid19.speed/2;
+  }
+  else {
+    covid19.vy = covid19.speed/2;
+  }
 
   covid19.x = covid19.x + covid19.vx;
   covid19.y = covid19.y + covid19.vy;
@@ -63,6 +74,8 @@ for (let i = 0; i < numStatic; i++){
 
   user.x = mouseX;
   user.y = mouseY;
+
+
 
   let d = dist(user.x,user.y,covid19.x,covid19.y);
   if (d < covid19.size/2 + user.size/2) {
