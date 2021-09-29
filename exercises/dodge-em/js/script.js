@@ -1,9 +1,13 @@
 /**
 Exercise: Dodge-em
 Nafia Tariq
+
+The user is a piece of cheese that is running away from Covid19.
+You need to click to make yourself move.
 */
 
 "use strict";
+
 let bg ={
   r: 163,
   g: 193,
@@ -32,13 +36,17 @@ let user = {
   }
 };
 
+//Static in the background
 let numStatic = 10;
 
+//Covid19 image
 let covid19Image;
+
 
 function preload () {
   covid19Image = loadImage("assets/images/virus.png");
 }
+
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -46,14 +54,16 @@ function setup() {
   covid19.y = random(0,height);
   covid19.vx = covid19.speed;
 
+//Making the cursor replaced by "user"
   noCursor();
 }
 
 
 function draw() {
+//Background colour
   background(bg.r,bg.g,bg.b);
 
-
+//Displaying the static in the background
 for (let i = 0; i < numStatic; i++){
   let x = random(0,width);
   let y = random(0,height);
@@ -62,6 +72,7 @@ for (let i = 0; i < numStatic; i++){
   point(x,y);
 }
 
+//Making the covid19 follow the cursor
   if (mouseX < covid19.x){
     covid19.vx = -covid19.speed/4;
   }
@@ -75,6 +86,7 @@ for (let i = 0; i < numStatic; i++){
     covid19.vy = covid19.speed/4;
   }
 
+//Covid19 movement
   covid19.x = covid19.x + covid19.vx;
   covid19.y = covid19.y + covid19.vy;
 
@@ -83,16 +95,17 @@ for (let i = 0; i < numStatic; i++){
     covid19.y = random(0,height);
   }
 
+//Covid19 image & size
   imageMode(CENTER);
   image(covid19Image,covid19.x,covid19.y, covid19.size, covid19.size);
 
+//The distance between user and covid19 to stop game
   let d = dist(user.x,user.y,covid19.x,covid19.y);
   if (d < covid19.size/4 + user.size/4) {
     noLoop();
   }
 
-
-
+//User shaped as a cheese
   fill(user.fill.r,user.fill.g,user.fill.b);
   strokeWeight(2);
   rect(user.x,user.y,user.size);
@@ -100,7 +113,7 @@ for (let i = 0; i < numStatic; i++){
 }
 
 function mousePressed(){
+//Making user move by clicking on the screen
   user.x = mouseX;
   user.y = mouseY;
-
 }
