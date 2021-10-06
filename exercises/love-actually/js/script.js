@@ -134,3 +134,9 @@ function display () {
   ellipse(circle1.x, circle1.y, circle1.size);
   ellipse(circle2.x, circle2.y, circle2.size);
 }
+
+function mousePressed() {
+  if (state === 'title') {
+    state = 'simulation';
+  }
+}
