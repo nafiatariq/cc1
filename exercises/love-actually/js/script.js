@@ -8,27 +8,37 @@ author, and this description to match your project!
 
 "use strict";
 
-// This is the User circle
+// This is the love-emoji circle (user)
 let circle1 = {
   x: undefined,
   y: 250,
-  size: 100,
+  size: 200,
   vx: 0,
   vy:0,
   speed: 4,
 };
 
-// This is the Non-User circle
+// This is the smirk-emoji circle (non-user)
 let circle2 = {
   x: undefined,
   y: 250,
   size: 100,
   vx: 0,
   vy:0,
-  speed: 4,
+  speed: 8,
 };
 
 let state = 'title'; // Can be: title, simulation, love, sadness
+
+let loveImage;
+
+let smirkImage;
+
+function preload () {
+//Loading covid19 image
+  loveImage = loadImage("assets/images/love-emoji.png");
+  smirkImage = loadImage("assets/images/smirk-emoji.png");
+}
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -71,7 +81,7 @@ function title(){
   textSize(64);
   fill(200,100,100);
   textAlign(CENTER, CENTER);
-  text('LOVE?', width/2, height/2);
+  text('Chase your Love!', width/2, height/2);
   pop();
 }
 
@@ -135,13 +145,11 @@ function checkOverlap() {
 
 function display () {
   // Display the circles
-  push();
-  fill(255,150,150);
-  ellipse(circle1.x, circle1.y, circle1.size);
+  imageMode(CENTER);
+  image(loveImage,circle1.x,circle1.y, circle1.size, circle1.size);
 
-  fill(255,150,150);
-  ellipse(circle2.x, circle2.y, circle2.size);
-  pop();
+  imageMode(CENTER);
+  image(smirkImage,circle2.x,circle2.y, circle2.size, circle2.size);
 }
 
 function mousePressed() {
