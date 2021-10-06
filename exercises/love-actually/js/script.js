@@ -2,8 +2,9 @@
 Exercise: Love, actually
 Nafia Tariq
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+You are having a small fight with your lover.
+You are madly in love and will chase your significant other
+to make them feel better. Let's see if you can accomplish your mission!
 */
 
 "use strict";
@@ -30,22 +31,25 @@ let circle2 = {
 
 let state = 'title'; // Can be: title, simulation, love, sadness
 
-let loveImage;
+let loveImage; // This is the user
 
-let smirkImage;
+let smirkImage; // This is the non-user
 
+// Preloading the images of the characters
 function preload () {
-//Loading covid19 image
+// Loading the lover emoji and the smirk emoji images
   loveImage = loadImage("assets/images/love-emoji.png");
   smirkImage = loadImage("assets/images/smirk-emoji.png");
 }
 
+// Setting up the background and characters
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
   setupCircles ();
 }
 
+// Setting up the positions & speed for the characters
 function setupCircles () {
   // Position circles separated from one another
   circle1.x = width/3;
@@ -59,6 +63,7 @@ function setupCircles () {
   circle2.vy = random(-circle1.speed, circle1.speed);
 }
 
+// Making the different options that can appear on screen
 function draw() {
   background(0);
 
@@ -76,15 +81,18 @@ function draw() {
   }
 }
 
+// This is the title in the beginning
 function title(){
   push();
   textSize(64);
   fill(200,100,100);
   textAlign(CENTER, CENTER);
-  text('Chase your Love!', width/2, height/2);
+  // Text that appears on screen
+  text('Chase after your Love!', width/2, height/2);
   pop();
 }
 
+// Different kind of simulation
 function simulation() {
   move();
   checkOffscreen();
@@ -92,21 +100,25 @@ function simulation() {
   display();
 }
 
+// When you catch your lover
 function love() {
   push();
   textSize(64);
   fill(255,150,150);
   textAlign(CENTER, CENTER);
-  text('<3', width/2, height/2);
+  // Text that appears on screen
+  text('You did it <3', width/2, height/2);
   pop();
 }
 
+// When you lose your lover
 function sadness() {
   push();
   textSize(64);
   fill(150,150,255);
   textAlign(CENTER, CENTER);
-  text('</3', width/2, height/2);
+  // Text that appears on screen
+  text('You missed it </3', width/2, height/2);
   pop();
 }
 
@@ -135,6 +147,7 @@ function isOffscreen(circle) {
   }
 }
 
+// When lover and smirk emoji are reunited
 function checkOverlap() {
   // Check if the circles overlap
   let d = dist(circle1.x, circle1.y, circle2.x, circle2.y);
@@ -143,6 +156,7 @@ function checkOverlap() {
   }
 }
 
+// Making the images appear on screen
 function display () {
   // Display the circles
   imageMode(CENTER);
@@ -153,9 +167,11 @@ function display () {
 }
 
 function mousePressed() {
+// Game starting after clicking on title
   if (state === 'title') {
     state = 'simulation';
   }
+// Making lover chase by pressing on screen with mouse
   circle1.x = mouseX;
   circle1.y = mouseY;
 }
