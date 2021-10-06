@@ -44,3 +44,20 @@ function setupCircles () {
   circle2.vx = random(-circle2.speed, circle2.speed);
   circle2.vy = random(-circle1.speed, circle1.speed);
 }
+
+function draw() {
+  background(0);
+
+  if (state === 'title') {
+    title();
+  }
+  else if (state === 'simulation') {
+    simulation();
+  }
+  else if (state === 'love') {
+    love();
+  }
+  else if (state === 'sadness') {
+    sadness();
+  }
+}
