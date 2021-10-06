@@ -86,3 +86,12 @@ function love() {
   text('<3', width/2, height/2);
   pop();
 }
+
+function sadness() {
+  push();
+  textSize(64);
+  fill(150,150,255);
+  textAlign(CENTER, CENTER);
+  text('</3', width/2, height/2);
+  pop();
+}
