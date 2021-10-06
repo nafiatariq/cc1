@@ -104,3 +104,27 @@ function move() {
   circle2.x = circle2.x + circle2.vx;
   circle2.y = circle2.y + circle2.vx;
 }
+
+function checkOffscreen() {
+  // Check if the circles have gone offscreen
+  if (isOffscreen(circle1) || isOffscreen(circle2)) {
+    state = 'sadness';
+  }
+}
+
+function isOffscreen(circle) {
+  if (circle.x < 0 || circle.x > width || circle.y < 0 || circle.y > height) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function checkOverlap() {
+  // Check if the circles overlap
+  let d = dist(circle1.x, circle1.y, circle2.x, circle2.y);
+  if (d < circle1.size/2 + circle2.size/2) {
+    state = 'love';
+  }
+}
