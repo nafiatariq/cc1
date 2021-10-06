@@ -8,26 +8,20 @@ author, and this description to match your project!
 
 "use strict";
 
+let circle1 = {
+  x: undefined,
+  y: 250,
+  size: 100,
+  vx: 0,
+  vy:0,
+  speed: 3
+};
 
-/**
-Description of preload
-*/
-function preload() {
-
-}
-
-
-/**
-Description of setup
-*/
-function setup() {
-
-}
-
-
-/**
-Description of draw()
-*/
-function draw() {
-
-}
+let circle2 = {
+  x: undefined,
+  y: 250,
+  size: 100,
+  vx: 0,
+  vy:0,
+  speed: 3
+};
