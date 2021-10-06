@@ -8,28 +8,30 @@ author, and this description to match your project!
 
 "use strict";
 
+// This is the User circle
 let circle1 = {
   x: undefined,
   y: 250,
   size: 100,
   vx: 0,
   vy:0,
-  speed: 3
+  speed: 4,
 };
 
+// This is the Non-User circle
 let circle2 = {
   x: undefined,
   y: 250,
   size: 100,
   vx: 0,
   vy:0,
-  speed: 3
+  speed: 4,
 };
 
 let state = 'title'; // Can be: title, simulation, love, sadness
 
 function setup() {
-  createCanvas(1000, 800);
+  createCanvas(windowWidth,windowHeight);
 
   setupCircles ();
 }
@@ -133,12 +135,19 @@ function checkOverlap() {
 
 function display () {
   // Display the circles
+  push();
+  fill(255,150,150);
   ellipse(circle1.x, circle1.y, circle1.size);
+
+  fill(255,150,150);
   ellipse(circle2.x, circle2.y, circle2.size);
+  pop();
 }
 
 function mousePressed() {
   if (state === 'title') {
     state = 'simulation';
   }
+  circle1.x = mouseX;
+  circle1.y = mouseY;
 }
