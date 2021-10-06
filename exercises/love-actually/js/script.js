@@ -1,6 +1,6 @@
 /**
-Title of Project
-Author Name
+Exercise: Love, actually
+Nafia Tariq
 
 This is a template. You must fill in the title,
 author, and this description to match your project!
@@ -29,7 +29,7 @@ let circle2 = {
 let state = 'title'; // Can be: title, simulation, love, sadness
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(1000, 800);
 
   setupCircles ();
 }
