@@ -95,3 +95,12 @@ function sadness() {
   text('</3', width/2, height/2);
   pop();
 }
+
+function move() {
+  // Move the circles
+  circle1.x = circle1.x + circle1.vx;
+  circle1.y = circle1.y + circle1.vx;
+
+  circle2.x = circle2.x + circle2.vx;
+  circle2.y = circle2.y + circle2.vx;
+}
