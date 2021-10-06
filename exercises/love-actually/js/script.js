@@ -61,3 +61,12 @@ function draw() {
     sadness();
   }
 }
+
+function title(){
+  push();
+  textSize(64);
+  fill(200,100,100);
+  textAlign(CENTER, CENTER);
+  text('LOVE?', width/2, height/2);
+  pop();
+}
