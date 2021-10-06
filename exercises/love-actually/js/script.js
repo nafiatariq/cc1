@@ -26,6 +26,8 @@ let circle2 = {
   speed: 3
 };
 
+let state = 'title'; // Can be: title, simulation, love, sadness
+
 function setup() {
   createCanvas(500, 500);
 
