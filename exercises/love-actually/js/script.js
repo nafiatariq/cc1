@@ -77,3 +77,12 @@ function simulation() {
   checkOverlap();
   display();
 }
+
+function love() {
+  push();
+  textSize(64);
+  fill(255,150,150);
+  textAlign(CENTER, CENTER);
+  text('<3', width/2, height/2);
+  pop();
+}
