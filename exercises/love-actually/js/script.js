@@ -47,6 +47,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
 
   setupCircles ();
+  rectMode(CENTER);
 }
 
 // Setting up the positions & speed for the characters
@@ -66,6 +67,8 @@ function setupCircles () {
 // Making the different options that can appear on screen
 function draw() {
   background(0);
+  backgroundRect();
+
 
   if (state === 'title') {
     title();
@@ -164,6 +167,38 @@ function display () {
 
   imageMode(CENTER);
   image(smirkImage,circle2.x,circle2.y, circle2.size, circle2.size);
+}
+
+// Rectangles in the background to create more tension
+function backgroundRect() {
+  push();
+// Rectangle 1
+    	translate(150, 150);
+    	rotate(radians(frameCount));
+    	fill(10);
+    	rect(0, 0, 100, 100);
+// Rectangle 2
+      translate(150, 150);
+    	rotate(radians(frameCount));
+    	fill(20);
+    	rect(0, 0, 200, 200);
+// Rectangle 3
+      translate(250, 250);
+    	rotate(radians(frameCount));
+    	fill(30);
+    	rect(0, 0, 300, 300);
+// Rectangle 4
+      translate(350, 350);
+    	rotate(radians(frameCount));
+    	fill(40);
+    	rect(0, 0, 400, 400);
+// Rectangle 5
+      translate(450, 450);
+    	rotate(radians(frameCount));
+    	fill(50);
+    	rect(0, 0, 500, 500);
+
+  pop();
 }
 
 function mousePressed() {
