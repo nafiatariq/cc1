@@ -70,3 +70,10 @@ function title(){
   text('LOVE?', width/2, height/2);
   pop();
 }
+
+function simulation() {
+  move();
+  checkOffscreen();
+  checkOverlap();
+  display();
+}
