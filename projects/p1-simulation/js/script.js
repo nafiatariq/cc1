@@ -31,6 +31,7 @@ let user ={
 let state = 'title';
 let court;
 let tennisBall;
+let numStatic = 5;
 
 /**
 Description of preload
@@ -122,6 +123,18 @@ function gameOver(){
 
   staticBg();
   }
+
+function staticBg() {
+  push();
+  for (let i = 0; i < numStatic; i++){
+    let x = random(0,width);
+    let y = random(0,height);
+    stroke(239,255,66);
+    strokeWeight(20);
+    point(x,y);
+  }
+  pop();
+}
 
 function mousePressed() {
   if (state === `title`) {
