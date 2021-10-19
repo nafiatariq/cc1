@@ -10,6 +10,18 @@ white box! If you miss, you will have to start over.
 
 "use strict";
 
+let user ={
+  x: 200,
+  y: 500,
+  size: 100,
+  fill: {
+    r: 250,
+    g:250,
+    b:250
+  }
+}
+
+let state = 'title';
 let court;
 
 /**
@@ -27,6 +39,7 @@ Description of setup
 function setup() {
   createCanvas(760,500);
 
+  noCursor();
 }
 
 
