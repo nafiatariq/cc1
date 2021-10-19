@@ -1,14 +1,13 @@
 /**
-Project 1: Simulation
-Catch the Balls!
+Title of Project
+Author Name
 
-Nafia Tariq
-
-Tennis balls are falling from the sky. Catch them with your
-white box! If you miss, you will have to start over.
+This is a template. You must fill in the title,
+author, and this description to match your project!
 */
 
 "use strict";
+
 
 let ball ={
   x: 200,
@@ -16,7 +15,6 @@ let ball ={
   size: 50,
   speed: 5,
 }
-
 let user ={
   x: 200,
   y: 500,
@@ -32,13 +30,12 @@ let state = 'title';
 let court;
 let tennisBall;
 let numStatic = 5;
-
 /**
 Description of preload
 */
 function preload() {
   court = loadImage("assets/images/court.jpg");
-  tennisBall = loadImage("assets/images/ball.png");
+  tennisBall = loadImage("assets/images/ball.png")
 }
 
 
@@ -65,7 +62,6 @@ function draw() {
   else if (state === 'gameOver') {
   }
 }
-
 function title(){
   //beginning title
   background(0);
@@ -110,19 +106,19 @@ function checkOverlap() {
   	 }
   }
 
-function directionRandom(){
+  function directionRandom(){
   	ball.x = random(20,width-20);
   }
 
 function gameOver(){
-  background(0);
-  textSize(50);
-	textAlign(CENTER);
-	text('GAME OVER!', width / 2, height / 2);
-  text('MOVE to play again', width / 2, height / 2 + 60);
+		background(0);
+    textSize(50);
+		textAlign(CENTER);
+		text('GAME OVER!', width / 2, height / 2);
+    text('MOVE to play again', width / 2, height / 2 + 60);
 
-  staticBg();
-  }
+    staticBg();
+}
 
 function staticBg() {
   push();
