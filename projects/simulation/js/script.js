@@ -10,13 +10,11 @@ white box! If you miss, you will have to start over.
 
 "use strict";
 
-let court;
 
 /**
 Description of preload
 */
 function preload() {
-  court = loadImage("assets/images/court.jpg");
 
 }
 
@@ -25,7 +23,6 @@ function preload() {
 Description of setup
 */
 function setup() {
-  createCanvas(760,500);
 
 }
 
