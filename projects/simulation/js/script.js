@@ -93,22 +93,32 @@ function move() {
 }
 
 function checkOverlap() {
-if(ball.y > height-10 && ball.x > mouseX-20 && ball.x < mouseX+20){
+  if(ball.y > height-10 && ball.x > mouseX-20 && ball.x < mouseX+20){
     ball.y = -20;
   }
 
-if(ball.y == -20){
+  if(ball.y == -20){
     directionRandom();
   }
-  
+
 if(ball.y > height){
     gameOver();
   }
 }
 
-  function directionRandom(){
-  	ball.x = random(20,width-20);
-  }
+function directionRandom(){
+  ball.x = random(20,width-20);
+}
+
+function gameOver(){
+		background(0);
+    textSize(50);
+		textAlign(CENTER);
+		text('GAME OVER!', width / 2, height / 2);
+    text('MOVE to play again', width / 2, height / 2 + 60);
+
+    staticBg();
+}
 
 function mousePressed() {
   if (state === `title`) {
