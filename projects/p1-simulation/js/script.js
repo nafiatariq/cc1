@@ -92,3 +92,7 @@ function display() {
   rect(mouseX, user.y, user.size);
   fill(user.fill.r,user.fill.g,user.fill.b);
 }
+
+function move() {
+  ball.y = ball.y+7;
+}
