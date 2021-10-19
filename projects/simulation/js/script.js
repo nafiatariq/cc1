@@ -90,7 +90,7 @@ function display() {
 }
 
 function move() {
-  ball.y = ball.y+7;
+  ball.y = ball.y+10;
 }
 
 function checkOverlap() {
