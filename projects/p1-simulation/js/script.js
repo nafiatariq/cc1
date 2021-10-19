@@ -83,3 +83,12 @@ function simulation() {
   move();
   checkOverlap();
 }
+
+function display() {
+  imageMode(CENTER);
+  image(tennisBall,ball.x,ball.y, ball.size, ball.size);
+
+  rectMode(CENTER);
+  rect(mouseX, user.y, user.size);
+  fill(user.fill.r,user.fill.g,user.fill.b);
+}
