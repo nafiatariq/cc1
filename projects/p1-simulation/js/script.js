@@ -96,3 +96,11 @@ function display() {
 function move() {
   ball.y = ball.y+7;
 }
+
+function mousePressed() {
+  if (state === `title`) {
+    state = `simulation`;
+  }
+
+  user.x = mouseX;
+}
