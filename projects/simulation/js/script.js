@@ -5,6 +5,8 @@ Nafia Tariq
 
 Tennis balls are falling from the sky.
 You need to catch them with the little white box you have!
+
+All images are from Freepik.com
 */
 
 "use strict";
@@ -64,8 +66,10 @@ function draw() {
   }
 }
 
+/**
+Making the Title page, first screen we see
+*/
 function title(){
-  //beginning title
   background(0);
   fill(255);
   textSize(50);
@@ -74,6 +78,9 @@ function title(){
 	text('CLICK to start', width / 2, height / 2 + 60);
 }
 
+/**
+Creating the simulation and adding bg image
+*/
 function simulation() {
   imageMode(CENTER);
   image(court, width / 2, height / 2);
@@ -83,6 +90,9 @@ function simulation() {
   checkOverlap();
 }
 
+/**
+Displaying the user box and the tennis ball
+*/
 function display() {
   imageMode(CENTER);
   image(tennisBall,ball.x,ball.y, ball.size, ball.size);
@@ -92,28 +102,42 @@ function display() {
   fill(user.fill.r,user.fill.g,user.fill.b);
 }
 
+/**
+Making the tennis ball have movement and speed
+*/
 function move() {
   ball.y = ball.y+ball.speed;
 }
 
+/**
+User box when tennis ball is catched or missed
+*/
 function checkOverlap() {
   if(ball.y > height-10 && ball.x > mouseX-20 && ball.x < mouseX+20){
     ball.y = -20;
   }
 
+/** When catched, drop from random direction from the top */
   if(ball.y == -20){
     directionRandom();
   }
 
+/** When missed, end of simulation */
 if(ball.y > height){
     state = `gameOver`;
   }
 }
 
+/**
+Making tennis ball drop from random direction
+*/
 function directionRandom(){
   ball.x = random(20,width-20);
 }
 
+/**
+Making the Game Over screen when missed the ball
+*/
 function gameOver(){
 		background(0);
     textSize(50);
@@ -121,9 +145,13 @@ function gameOver(){
 		text('GAME OVER!', width / 2, height / 2);
     text('Try Again', width / 2, height / 2 + 60);
 
+/** Static background */
     staticBg();
 }
 
+/**
+Creating a static background that looks like tennis balls
+*/
 function staticBg() {
   push();
   for (let i = 0; i < numStatic; i++){
@@ -136,10 +164,15 @@ function staticBg() {
   pop();
 }
 
+/**
+Mouse functions
+*/
 function mousePressed() {
+/** Start simulation by clicking */
   if (state === `title`) {
     state = `simulation`;
   }
 
+/** The user box is the mouse */
   user.x = mouseX;
 }
