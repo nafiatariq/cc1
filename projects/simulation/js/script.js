@@ -31,6 +31,7 @@ Description of preload
 let state = 'title';
 let court;
 let tennisBall;
+let numStatic = 5;
 
 function preload() {
   court = loadImage("assets/images/court.jpg");
@@ -118,6 +119,18 @@ function gameOver(){
     text('MOVE to play again', width / 2, height / 2 + 60);
 
     staticBg();
+}
+
+function staticBg() {
+  push();
+  for (let i = 0; i < numStatic; i++){
+    let x = random(0,width);
+    let y = random(0,height);
+    stroke(239,255,66);
+    strokeWeight(20);
+    point(x,y);
+  }
+  pop();
 }
 
 function mousePressed() {
