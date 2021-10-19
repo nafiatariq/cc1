@@ -1,18 +1,19 @@
 /**
-Title of Project
-Author Name
+P1: Simulation
+Catching Balls
+Nafia Tariq
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Tennis balls are falling from the sky.
+You need to catch them with the little white box you have!
 */
 
 "use strict";
 
 let ball ={
-  x: 200,
+  x: 300,
   y: -10,
   size: 50,
-  speed: 5,
+  speed: 10,
 }
 let user ={
   x: 200,
@@ -24,31 +25,32 @@ let user ={
     b:250
   }
 }
-/**
-Description of preload
-*/
 
 let state = 'title';
 let court;
 let tennisBall;
 let numStatic = 5;
 
+/**
+Loading the background and the ball images
+*/
 function preload() {
   court = loadImage("assets/images/court.jpg");
   tennisBall = loadImage("assets/images/ball.png");
 }
 
 /**
-Description of setup
+Setting up the size of the canvas
 */
 function setup() {
+/** Canvas Size */
   createCanvas(760,500);
-
+/** Removing cursor from mouse */
   noCursor();
 }
 
 /**
-Description of draw()
+The functions for the beginning, during and after the simulation
 */
 function draw() {
   if (state === 'title') {
@@ -90,7 +92,7 @@ function display() {
 }
 
 function move() {
-  ball.y = ball.y+10;
+  ball.y = ball.y+ball.speed;
 }
 
 function checkOverlap() {
