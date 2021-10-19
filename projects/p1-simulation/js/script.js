@@ -34,5 +34,18 @@ function setup() {
 Description of draw()
 */
 function draw() {
+  if (state === 'title') {
+    title();
+  }
 
+}
+
+function title(){
+  //beginning title
+  background(0);
+  fill(255);
+  textSize(50);
+  textAlign(CENTER);
+  text('CATCH THE TENNIS BALLS!', width / 2, height / 2);
+	text('CLICK to start', width / 2, height / 2 + 60);
 }
