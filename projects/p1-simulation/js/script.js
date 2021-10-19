@@ -10,6 +10,13 @@ white box! If you miss, you will have to start over.
 
 "use strict";
 
+let ball ={
+  x: 200,
+  y: -10,
+  size: 50,
+  speed: 5,
+}
+
 let user ={
   x: 200,
   y: 500,
@@ -23,13 +30,14 @@ let user ={
 
 let state = 'title';
 let court;
+let tennisBall;
 
 /**
 Description of preload
 */
 function preload() {
   court = loadImage("assets/images/court.jpg");
-
+  tennisBall = loadImage("assets/images/ball.png");
 }
 
 
@@ -50,7 +58,11 @@ function draw() {
   if (state === 'title') {
     title();
   }
-
+  else if (state === 'simulation') {
+    simulation();
+  }
+  else if (state === 'gameOver') {
+  }
 }
 
 function title(){
@@ -61,4 +73,13 @@ function title(){
   textAlign(CENTER);
   text('CATCH THE TENNIS BALLS!', width / 2, height / 2);
 	text('CLICK to start', width / 2, height / 2 + 60);
+}
+
+function simulation() {
+  imageMode(CENTER);
+  image(court, width / 2, height / 2);
+
+  display();
+  move();
+  checkOverlap();
 }
