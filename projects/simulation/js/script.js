@@ -88,6 +88,28 @@ function display() {
   fill(user.fill.r,user.fill.g,user.fill.b);
 }
 
+function move() {
+  ball.y = ball.y+7;
+}
+
+function checkOverlap() {
+if(ball.y > height-10 && ball.x > mouseX-20 && ball.x < mouseX+20){
+    ball.y = -20;
+  }
+
+if(ball.y == -20){
+    directionRandom();
+  }
+  
+if(ball.y > height){
+    gameOver();
+  }
+}
+
+  function directionRandom(){
+  	ball.x = random(20,width-20);
+  }
+
 function mousePressed() {
   if (state === `title`) {
     state = `simulation`;
