@@ -109,8 +109,18 @@ function checkOverlap() {
   	 }
   }
 
-  function directionRandom(){
+function directionRandom(){
   	ball.x = random(20,width-20);
+  }
+
+function gameOver(){
+  background(0);
+  textSize(50);
+	textAlign(CENTER);
+	text('GAME OVER!', width / 2, height / 2);
+  text('MOVE to play again', width / 2, height / 2 + 60);
+
+  staticBg();
   }
 
 function mousePressed() {
