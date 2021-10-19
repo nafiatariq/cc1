@@ -60,6 +60,7 @@ function draw() {
     simulation();
   }
   else if (state === 'gameOver') {
+    gameOver();
   }
 }
 
@@ -105,7 +106,7 @@ function checkOverlap() {
   }
 
 if(ball.y > height){
-    gameOver();
+    state = `gameOver`;
   }
 }
 
@@ -116,9 +117,9 @@ function directionRandom(){
 function gameOver(){
 		background(0);
     textSize(50);
-		textAlign(CENTER);
+		textAlign(CENTER, CENTER);
 		text('GAME OVER!', width / 2, height / 2);
-    text('MOVE to play again', width / 2, height / 2 + 60);
+    text('Try Again', width / 2, height / 2 + 60);
 
     staticBg();
 }
