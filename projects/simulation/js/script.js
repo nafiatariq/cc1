@@ -24,7 +24,9 @@ function preload() {
 Description of setup
 */
 function setup() {
+  createCanvas(760,500);
 
+  noCursor();
 }
 
 /**
