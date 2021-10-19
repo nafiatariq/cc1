@@ -8,6 +8,22 @@ author, and this description to match your project!
 
 "use strict";
 
+let ball ={
+  x: 200,
+  y: -10,
+  size: 50,
+  speed: 5,
+}
+let user ={
+  x: 200,
+  y: 500,
+  size: 100,
+  fill: {
+    r: 250,
+    g:250,
+    b:250
+  }
+}
 /**
 Description of preload
 */
@@ -61,4 +77,21 @@ function simulation() {
   display();
   move();
   checkOverlap();
+}
+
+function display() {
+  imageMode(CENTER);
+  image(tennisBall,ball.x,ball.y, ball.size, ball.size);
+
+  rectMode(CENTER);
+  rect(mouseX, user.y, user.size);
+  fill(user.fill.r,user.fill.g,user.fill.b);
+}
+
+function mousePressed() {
+  if (state === `title`) {
+    state = `simulation`;
+  }
+
+  user.x = mouseX;
 }
