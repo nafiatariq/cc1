@@ -11,7 +11,7 @@ author, and this description to match your project!
 let user;
 let building;
 let bird;
-let numberOfBuildings = 15;
+let numberOfBuildings = 10;
 let numberOfBirds = 5;
 let buildings = [];
 let birds = [];
@@ -39,7 +39,7 @@ function preload() {
 Description of setup
 */
 function setup() {
-  createCanvas(1000,500);
+  createCanvas(1050,500);
 
   //create the user
   user = new User();
@@ -88,8 +88,11 @@ function title(){
   fill(0);
   textSize(50);
   textAlign(CENTER);
-  text('CITY ESCAPE', width / 2, height / 2);
-	text('CLICK to start', width / 2, height / 2 + 60);
+  text('CITY ESCAPE', width/2, height/2);
+  textSize(30);
+	text('CLICK to start', width/2, height/2 + 60);
+  textSize(20);
+	text('PRESS arrows to move UP & DOWN', width/2, height/2 + 160);
 }
 
 function simulation() {
