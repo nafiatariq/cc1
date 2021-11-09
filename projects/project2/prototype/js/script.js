@@ -10,7 +10,7 @@ author, and this description to match your project!
 
 let user;
 let building;
-let numberOfBuildings = 5;
+let numberOfBuildings = 15;
 let buildings = [];
 let state = 'title';
 /**
@@ -37,7 +37,7 @@ function setup() {
 
   //set the initial buildings in the buildings array
   for (let i = 0; i<numberOfBuildings; i++){
-    building = new Building(random(0,width),random(50,90),random(90,150));
+    building = new Building(100+random(150,200)*i,random(50,90),random(200,600));
     buildings.push(building);
   }
 
@@ -91,6 +91,10 @@ function leftScreen(object) {
   else{
     return false
   };
+}
+
+function checkTouch(object1,object2){
+  
 }
 
 function gameOver(){
