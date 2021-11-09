@@ -13,11 +13,22 @@ let building;
 let numberOfBuildings = 15;
 let buildings = [];
 let state = 'title';
+let buildingImages = [];
+let backgroundImage;
+let level = 0;
+//level threshold is the number of buildings that need to leave the screen before the level goes up
+let levelThreshold = 10;
+let numberOfObjectsLeftScreen = 0;
+
 /**
 Description of preload
 */
 function preload() {
+  buildingImages[0] = loadImage("assets/images/b-1.png");
+  buildingImages[1] = loadImage("assets/images/b-2.png");
+  buildingImages[2] = loadImage("assets/images/b-3.png");
 
+  backgroundImage = loadImage("assets/images/bg.jpeg");
 }
 
 
@@ -37,7 +48,7 @@ function setup() {
 
   //set the initial buildings in the buildings array
   for (let i = 0; i<numberOfBuildings; i++){
-    building = new Building(100+random(150,200)*i,random(50,200),random(50,300));
+    building = new Building(100+random(150,200)*i,random(50,200),random(400,600),buildingImages[int(random(0,buildingImages.length))]);
     buildings.push(building);
   }
 
@@ -64,15 +75,20 @@ function draw() {
 }
 
 function title(){
-  background(0);
-  fill(255);
+  background(211);
+  fill(0);
   textSize(50);
   textAlign(CENTER);
-  text('TITLE', width / 2, height / 2);
+  text('CITY ESCAPE', width / 2, height / 2);
 	text('CLICK to start', width / 2, height / 2 + 60);
 }
 
 function simulation() {
+  imageMode(CENTER);
+  image(backgroundImage, width/2, height/2, width, height);
+  displayLevel();
+  checkLevel();
+
   //display the user
   user.display();
   user.move();
@@ -80,6 +96,10 @@ function simulation() {
   for (let i = 0; i<buildings.length; i++){
     buildings[i].display();
     buildings[i].move();
+    //wrap the building if it left the canvas
+    if (leftScreen(buildings[i]) === true){
+      wrap(buildings[i])
+    };
   }
 
   for (let i=0; i<buildings.length; i++){
@@ -92,6 +112,7 @@ function simulation() {
 
 function leftScreen(object) {
   if (object.x <= 0-object.width){
+    numberOfObjectsLeftScreen += 1
     return true
   }
   else{
@@ -111,7 +132,7 @@ function checkTouch(object){
 }
 
 function gameOver(){
-		background(0);
+		background(211);
     textSize(50);
 		textAlign(CENTER, CENTER);
 		text('GAME OVER!', width / 2, height / 2);
@@ -124,4 +145,28 @@ function mousePressed() {
   if (state === `title`) {
     state = `simulation`;
   }
+  //reset the game
+  else if (state === `gameOver`){
+    user.y = height/2;
+    state = `title`;
+  }
+}
+
+function wrap(object){
+  //reset the object position to the width of the canvas
+  object.x = width;
+}
+
+function checkLevel(){
+  if (numberOfObjectsLeftScreen >= levelThreshold){
+    level += 1
+    numberOfObjectsLeftScreen = 0
+  }
+}
+
+function displayLevel(){
+  push();
+  textSize(50);
+  text("Level: " + level, 5*width/6, 100);
+  pop();
 }

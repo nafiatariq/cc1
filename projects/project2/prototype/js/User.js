@@ -4,7 +4,7 @@ class User {
     this.x= undefined;
     this.y= undefined;
     this.size= 50;
-    this.fill= 255;
+    this.fill= 0;
     this.vy = 3;
   }
 
