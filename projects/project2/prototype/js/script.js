@@ -10,8 +10,11 @@ author, and this description to match your project!
 
 let user;
 let building;
+let bird;
 let numberOfBuildings = 15;
+let numberOfBirds = 5;
 let buildings = [];
+let birds = [];
 let state = 'title';
 let buildingImages = [];
 let backgroundImage;
@@ -50,6 +53,12 @@ function setup() {
   for (let i = 0; i<numberOfBuildings; i++){
     building = new Building(100+random(150,200)*i,random(50,200),random(400,600),buildingImages[int(random(0,buildingImages.length))]);
     buildings.push(building);
+  }
+
+  //create the birds in the game
+  for (let i = 0; i<numberOfBirds; i++){
+    bird = new Bird(random(300,width),random(0,height/9), random(0,360));
+    birds.push(bird);
   }
 
 }
@@ -97,8 +106,17 @@ function simulation() {
     buildings[i].display();
     buildings[i].move();
     //wrap the building if it left the canvas
-    if (leftScreen(buildings[i]) === true){
+    if (leftScreenBuilding(buildings[i]) === true){
       wrap(buildings[i])
+    };
+  }
+
+  for (let i = 0; i<birds.length; i++){
+    birds[i].display();
+    birds[i].move();
+    //wrap the building if it left the canvas
+    if (leftScreenBird(birds[i]) === true){
+      wrap(birds[i])
     };
   }
 
@@ -110,7 +128,7 @@ function simulation() {
 
 }
 
-function leftScreen(object) {
+function leftScreenBuilding(object) {
   if (object.x <= 0-object.width){
     numberOfObjectsLeftScreen += 1
     return true
@@ -120,6 +138,17 @@ function leftScreen(object) {
   };
 }
 
+function leftScreenBird(object) {
+  if (object.x <= 0-object.size){
+    numberOfObjectsLeftScreen += 1
+    return true
+  }
+  else{
+    return false
+  };
+}
+
+//I'll need to make this function more smart for rectangles later on
 function checkTouch(object){
   let d = dist(user.x,user.y,object.x,object.y);
 
