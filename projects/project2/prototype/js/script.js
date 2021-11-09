@@ -25,7 +25,7 @@ function preload() {
 Description of setup
 */
 function setup() {
-  createCanvas(500,500);
+  createCanvas(1000,500);
 
   //create the user
   user = new User();
@@ -37,7 +37,7 @@ function setup() {
 
   //set the initial buildings in the buildings array
   for (let i = 0; i<numberOfBuildings; i++){
-    building = new Building(100+random(150,200)*i,random(50,90),random(200,600));
+    building = new Building(100+random(150,200)*i,random(50,200),random(50,300));
     buildings.push(building);
   }
 
@@ -82,6 +82,12 @@ function simulation() {
     buildings[i].move();
   }
 
+  for (let i=0; i<buildings.length; i++){
+    if (checkTouch(buildings[i]) === true){
+      state = 'gameOver'
+    }
+  }
+
 }
 
 function leftScreen(object) {
@@ -93,8 +99,15 @@ function leftScreen(object) {
   };
 }
 
-function checkTouch(object1,object2){
-  
+function checkTouch(object){
+  let d = dist(user.x,user.y,object.x,object.y);
+
+  if (d <= (user.size/2+object.width/2)){
+    return true
+  }
+  else{
+    return false
+  };
 }
 
 function gameOver(){
