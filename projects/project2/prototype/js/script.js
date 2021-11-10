@@ -1,9 +1,9 @@
 /**
-Title of Project
-Author Name
+Project 2 - Prototype: City Escape
+Nafia Tariq
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Avoid buildings and birds by moving the airplane
+up and down with the keyboard arrows!
 */
 
 "use strict";
@@ -23,9 +23,7 @@ let level = 0;
 let levelThreshold = 10;
 let numberOfObjectsLeftScreen = 0;
 
-/**
-Description of preload
-*/
+
 function preload() {
   buildingImages[0] = loadImage("assets/images/b-1.png");
   buildingImages[1] = loadImage("assets/images/b-2.png");
@@ -35,9 +33,6 @@ function preload() {
 }
 
 
-/**
-Description of setup
-*/
 function setup() {
   createCanvas(1050,500);
 
@@ -64,9 +59,6 @@ function setup() {
 }
 
 
-/**
-Description of draw()
-*/
 function draw() {
   background(0);
 
