@@ -2,8 +2,7 @@
 Musical Toy
 Nafia Tariq
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+A program that plays music based on primitive physics.
 */
 
 "use strict";
