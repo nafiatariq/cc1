@@ -22,6 +22,7 @@ function setup() {
 
 function draw() {
 
+// background colour
   background(0);
 
   for (let i = 0; i < balls.length; i++) {
