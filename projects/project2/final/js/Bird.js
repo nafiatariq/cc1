@@ -13,7 +13,6 @@ class Bird{
 
   // Making the user look like a Bird
   display(){
-    l
     push();
     fill(this.fill);
     imageMode(CENTER);
