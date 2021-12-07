@@ -1,3 +1,4 @@
+// Creating the bird User
 class Bird{
 
   constructor(x,y,counterValue,image){
@@ -10,17 +11,11 @@ class Bird{
     this.image = image;
   }
 
+  // Making the user look like a Bird
   display(){
-    push();
-    fill(this.fill);
-    imageMode(CENTER);
-    image(this.image,this.x,this.y,this.size);
-    pop();
-  }
-
-  move(){
-    this.x += this.vx - level/2;
-    this.y += 5*sin(1/4*(this.counter));
-    this.counter += 1;
-  }
+  push();
+  fill(this.fill);
+  imageMode(CENTER);
+  image(this.image,this.x,this.y,this.size);
+  pop();
 }
