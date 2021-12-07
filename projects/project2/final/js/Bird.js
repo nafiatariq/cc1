@@ -1,4 +1,4 @@
-// Creating the bird User
+// Creating the bird as a user
 class Bird{
 
   constructor(x,y,counterValue,image){
