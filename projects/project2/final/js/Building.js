@@ -1,3 +1,4 @@
+// Creating the Buildings
 class Building{
 
   constructor(x,widthOfBuilding,heightOfBuilding,image){
@@ -10,6 +11,7 @@ class Building{
     this.image = image;
   }
 
+// Making regular rectangles into Buildings
   display(){
     push();
     fill(this.fill);
