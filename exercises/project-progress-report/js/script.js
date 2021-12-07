@@ -29,7 +29,7 @@ let numberOfObjectsLeftScreen = 0;
 
 
 function preload() {
-  music = loadSound('assets/sounds/flying-music.wav');
+  music = loadSound('assets/sounds/bark.wav');
   bark = loadSound('assets/sounds/bark.wav');
 
   buildingImages[0] = loadImage("assets/images/b-1.png");
@@ -53,7 +53,7 @@ function setup() {
 
   //define the user x position
   user.x = width/8;
-  user.y = height/2;
+  user.y = 0;
 
   //set the initial buildings in the buildings array
   for (let i = 0; i<numberOfBuildings; i++){
@@ -161,14 +161,25 @@ function leftScreenBird(object) {
 
 //I'll need to make this function more smart for rectangles later on
 function checkTouch(object){
-  let d = dist(user.x,user.y,object.x,object.y);
 
-  if (d <= (user.size/2+object.width/2)){
-    return true
-  }
-  else{
-    return false
-  };
+  if (user.x > object.x - object.width/2 &&
+      user.x < object.x + object.width/2 &&
+      user.y > object.y - object.height/2 &&
+      user.y < object.y + object.height/2) {
+        return true;
+      }
+      else {
+        return false;
+      }
+  //
+  // let d = dist(user.x,user.y,object.x,object.y);
+  //
+  // if (d <= (user.size/2+object.width/2)){
+  //   return true
+  // }
+  // else{
+  //   return false
+  // };
 }
 
 function gameOver(){
