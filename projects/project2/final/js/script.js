@@ -142,3 +142,16 @@ function leftScreenBird(object) {
     return false
   };
 }
+
+//I'll need to make this function more smart for rectangles later on
+function checkTouch(object){
+
+  if (user.x > object.x - object.width/2 &&
+      user.x < object.x + object.width/2 &&
+      user.y > object.y - object.height/2 &&
+      user.y < object.y + object.height/2) {
+        return true;
+      }
+      else {
+        return false;
+      }
