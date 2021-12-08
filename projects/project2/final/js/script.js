@@ -219,3 +219,10 @@ function checkLevel(){
     numberOfObjectsLeftScreen = 0
   }
 }
+
+function displayLevel(){
+  push();
+  textSize(50);
+  text("Level: " + level, 5*width/6, 100);
+  pop();
+}
