@@ -68,3 +68,15 @@ function draw() {
   }
 
 }
+
+
+function title(){
+  background(255,255,80);
+  textSize(50);
+  textAlign(CENTER);
+  text('CITY ESCAPE', width/2, height/2);
+  textSize(30);
+	text('CLICK to start', width/2, height/2 + 60);
+  textSize(20);
+	text('PRESS arrows to move UP & DOWN', width/2, height/2 + 160);
+}
