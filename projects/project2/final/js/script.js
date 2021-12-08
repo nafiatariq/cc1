@@ -80,3 +80,15 @@ function title(){
   textSize(20);
 	text('PRESS arrows to move UP & DOWN', width/2, height/2 + 160);
 }
+
+
+function simulation() {
+  imageMode(CENTER);
+  image(backgroundImage, width/2, height/2, width, height);
+  displayLevel();
+  checkLevel();
+  checkOffscreen();
+  for (let i = 0; i<birds.length; i++){
+    bird = birds[i];
+    checkOverlap(bird);
+  }
