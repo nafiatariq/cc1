@@ -155,3 +155,13 @@ function checkTouch(object){
       else {
         return false;
       }
+}
+
+function gameOver(){
+		background(150,255,255);
+    textSize(50);
+    textAlign(CENTER);
+    text('GAME OVER!', width/2, height/2);
+    textSize(30);
+  	text('Restart to Try Again', width/2, height/2 + 60);
+}
