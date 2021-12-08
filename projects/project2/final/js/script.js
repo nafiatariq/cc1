@@ -92,3 +92,25 @@ function simulation() {
     bird = birds[i];
     checkOverlap(bird);
   }
+
+  //display the user
+  user.display();
+  user.move();
+
+  for (let i = 0; i<buildings.length; i++){
+    buildings[i].display();
+    buildings[i].move();
+    //wrap the building if it left the canvas
+    if (leftScreenBuilding(buildings[i]) === true){
+      wrap(buildings[i])
+    };
+  }
+
+  for (let i = 0; i<birds.length; i++){
+    birds[i].display();
+    birds[i].move();
+    //wrap the building if it left the canvas
+    if (leftScreenBird(birds[i]) === true){
+      wrap(birds[i])
+    };
+  }
