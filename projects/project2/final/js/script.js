@@ -52,3 +52,19 @@ function setup() {
   }
 
 }
+
+
+function draw() {
+  background(0);
+
+  if (state === 'title') {
+    title();
+  }
+  else if (state === 'simulation') {
+    simulation();
+  }
+  else if (state === 'gameOver') {
+    gameOver();
+  }
+
+}
