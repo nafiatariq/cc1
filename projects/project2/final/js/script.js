@@ -132,3 +132,13 @@ function leftScreenBuilding(object) {
     return false
   };
 }
+
+function leftScreenBird(object) {
+  if (object.x <= 0-object.size){
+    numberOfObjectsLeftScreen += 1
+    return true
+  }
+  else{
+    return false
+  };
+}
