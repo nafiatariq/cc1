@@ -165,3 +165,20 @@ function gameOver(){
     textSize(30);
   	text('Restart to Try Again', width/2, height/2 + 60);
 }
+
+
+function mousePressed() {
+/** Start simulation by clicking */
+  if (!music.isPlaying()){
+    music.loop();
+  }
+
+  if (state === `title`) {
+    state = `simulation`;
+  }
+  //reset the game
+  else if (state === `gameOver`){
+    user.y = height/2;
+    state = `title`;
+  }
+}
