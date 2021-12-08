@@ -8,3 +8,19 @@ are at, the faster you will go.
 
 Fly Safely!
 */
+
+
+function preload() {
+  music = loadSound('assets/sounds/bark.wav');
+  bark = loadSound('assets/sounds/bark.wav');
+
+  buildingImages[0] = loadImage("assets/images/b-1.png");
+  buildingImages[1] = loadImage("assets/images/b-2.png");
+  buildingImages[2] = loadImage("assets/images/b-3.png");
+
+  birdImage = loadImage("assets/images/bird.png");
+
+  userImage = loadImage("assets/images/user.png");
+
+  backgroundImage = loadImage("assets/images/bg.png");
+}
