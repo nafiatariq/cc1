@@ -12,7 +12,7 @@ Fly Safely!
 "use strict";
 
 let music;
-let bark;
+let end;
 let user;
 let building;
 let bird;
@@ -34,7 +34,7 @@ let numberOfObjectsLeftScreen = 0;
 // Loading in all images and sounds
 function preload() {
   music = loadSound('assets/sounds/flying-music.wav');
-  bark = loadSound('assets/sounds/bark.wav');
+  end = loadSound('assets/sounds/end.wav');
 
   buildingImages[0] = loadImage("assets/images/b-1.png");
   buildingImages[1] = loadImage("assets/images/b-2.png");
@@ -90,7 +90,6 @@ function draw() {
 
 }
 
-
 function title(){
   background(255,255,80);
   textSize(50);
@@ -139,6 +138,7 @@ function simulation() {
   for (let i=0; i<buildings.length; i++){
     if (checkTouch(buildings[i]) === true){
       music.stop();
+      end.play();
       state = 'gameOver'
     }
   }
@@ -184,18 +184,19 @@ function gameOver(){
     textAlign(CENTER);
     text('GAME OVER!', width/2, height/2);
     textSize(30);
-  	text('Restart to Try Again', width/2, height/2 + 60);
+  	text('Refresh to Try Again', width/2, height/2 + 60);
 }
 
 
 function mousePressed() {
-/** Start simulation by clicking */
+// Start simulation by clicking
   if (!music.isPlaying()){
     music.loop();
   }
 
   if (state === `title`) {
     state = `simulation`;
+
   }
   //reset the game
   else if (state === `gameOver`){
@@ -212,6 +213,7 @@ function wrap(object){
 function checkOffscreen() {
   // Check if the user have gone offscreen
   if (isOffscreen(user)) {
+    music.stop();
     state = `gameOver`;
   }
 }
@@ -229,7 +231,8 @@ function checkOverlap(bird) {
   // Check if the user and bird overlap
   let d = dist(user.x,user.y,bird.x,bird.y);
   if (d < user.size/3 + bird.size/3) {
-    bark.play();
+    music.stop();
+    end.play();
     state = `gameOver`;
   }
 }
