@@ -212,3 +212,10 @@ function checkOverlap(bird) {
     state = `gameOver`;
   }
 }
+
+function checkLevel(){
+  if (numberOfObjectsLeftScreen >= levelThreshold){
+    level += 1
+    numberOfObjectsLeftScreen = 0
+  }
+}
