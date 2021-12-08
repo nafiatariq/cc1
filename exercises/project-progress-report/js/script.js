@@ -86,8 +86,7 @@ function draw() {
 }
 
 function title(){
-  background(211);
-  fill(0);
+  background(255,255,80);
   textSize(50);
   textAlign(CENTER);
   text('CITY ESCAPE', width/2, height/2);
@@ -183,11 +182,12 @@ function checkTouch(object){
 }
 
 function gameOver(){
-		background(211);
+		background(150,255,255);
     textSize(50);
-		textAlign(CENTER, CENTER);
-		text('GAME OVER!', width / 2, height / 2);
-    text('Try Again', width / 2, height / 2 + 60);
+    textAlign(CENTER);
+    text('GAME OVER!', width/2, height/2);
+    textSize(30);
+  	text('Restart to Try Again', width/2, height/2 + 60);
 }
 
 
