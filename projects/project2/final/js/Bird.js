@@ -6,7 +6,7 @@ class Bird{
     this.y= 12*y/5;
     this.size= 55;
     this.fill= 255;
-    this.vx = -3;
+    this.vx = -5;
     this.counter = counterValue;
     this.image = image;
   }

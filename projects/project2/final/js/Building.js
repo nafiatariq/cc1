@@ -7,7 +7,7 @@ class Building{
     this.width= widthOfBuilding;
     this.height= heightOfBuilding;
     this.fill= 255;
-    this.vx = -3;
+    this.vx = -5;
     this.image = image;
   }
 

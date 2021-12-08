@@ -26,12 +26,12 @@ let birdImage;
 let userImage;
 let backgroundImage;
 let level = 0;
-//level threshold is the number of buildings that need to leave the screen before the level goes up
+//Level threshold is the number of buildings that need to leave the screen before the level goes up
 let levelThreshold = 10;
 let numberOfObjectsLeftScreen = 0;
 
 
-// Loading in all images and sounds
+//Loading in all images and sounds
 function preload() {
   music = loadSound('assets/sounds/flying-music.wav');
   end = loadSound('assets/sounds/end.wav');
@@ -48,25 +48,25 @@ function preload() {
 }
 
 
-// Making the base elements
+//Making the base elements
 function setup() {
-// Creating the size of the canvas
-  createCanvas(1050,500);
+  //Creating the size of the canvas
+  createCanvas(1075,525);
 
-  //create the user
+  //Create the user
   user = new User();
 
-  //define the user x position
+  //Define the user x position
   user.x = width/8;
   user.y = 0;
 
-  //set the initial buildings in the buildings array
+  //Set the initial buildings in the buildings array
   for (let i = 0; i<numberOfBuildings; i++){
     building = new Building(10+random(15,200)*i,random(50,200),random(100,450),buildingImages[int(random(0,buildingImages.length))]);
     buildings.push(building);
   }
 
-  //create the birds in the game
+  //Create the birds in the game
   for (let i = 0; i<numberOfBirds; i++){
     bird = new Bird(random(300,width),random(0,height/9), random(0,360),birdImage);
     birds.push(bird);
@@ -74,7 +74,7 @@ function setup() {
 
 }
 
-
+// Begin, during and the ending of the game
 function draw() {
   background(0);
 
@@ -90,6 +90,7 @@ function draw() {
 
 }
 
+//Screen at the start
 function title(){
   background(255,255,80);
   textSize(50);
@@ -101,10 +102,12 @@ function title(){
 	text('PRESS arrows to move UP & DOWN', width/2, height/2 + 160);
 }
 
-
+//Screen during the game
 function simulation() {
+  //Background Image
   imageMode(CENTER);
   image(backgroundImage, width/2, height/2, width, height);
+  //Displaying Levels
   displayLevel();
   checkLevel();
   checkOffscreen();
@@ -113,14 +116,14 @@ function simulation() {
     checkOverlap(bird);
   }
 
-  //display the user
+  //Display the user
   user.display();
   user.move();
 
   for (let i = 0; i<buildings.length; i++){
     buildings[i].display();
     buildings[i].move();
-    //wrap the building if it left the canvas
+    //Wrap the building if it left the canvas
     if (leftScreenBuilding(buildings[i]) === true){
       wrap(buildings[i])
     };
@@ -129,13 +132,14 @@ function simulation() {
   for (let i = 0; i<birds.length; i++){
     birds[i].display();
     birds[i].move();
-    //wrap the building if it left the canvas
+    //Wrap the building if it left the canvas
     if (leftScreenBird(birds[i]) === true){
       wrap(birds[i])
     };
   }
 
   for (let i=0; i<buildings.length; i++){
+    //End game when user touches building
     if (checkTouch(buildings[i]) === true){
       music.stop();
       end.play();
@@ -164,9 +168,8 @@ function leftScreenBird(object) {
   };
 }
 
-//I'll need to make this function more smart for rectangles later on
+//Making the user touch the building
 function checkTouch(object){
-
   if (user.x > object.x - object.width/2 &&
       user.x < object.x + object.width/2 &&
       user.y > object.y - object.height/2 &&
@@ -178,6 +181,7 @@ function checkTouch(object){
       }
 }
 
+//The ending game screen
 function gameOver(){
 		background(150,255,255);
     textSize(50);
@@ -187,9 +191,9 @@ function gameOver(){
   	text('Refresh to Try Again', width/2, height/2 + 60);
 }
 
-
+//Start simulation by clicking
 function mousePressed() {
-// Start simulation by clicking
+  //Adding music during the game
   if (!music.isPlaying()){
     music.loop();
   }
@@ -198,7 +202,7 @@ function mousePressed() {
     state = `simulation`;
 
   }
-  //reset the game
+  //Reset the game
   else if (state === `gameOver`){
     user.y = height/2;
     state = `title`;
@@ -206,7 +210,7 @@ function mousePressed() {
 }
 
 function wrap(object){
-  //reset the object position to the width of the canvas
+  //Reset the object position to the width of the canvas
   object.x = width;
 }
 
@@ -228,7 +232,7 @@ function isOffscreen(user) {
 }
 
 function checkOverlap(bird) {
-  // Check if the user and bird overlap
+  //Check if the user and bird overlap
   let d = dist(user.x,user.y,bird.x,bird.y);
   if (d < user.size/3 + bird.size/3) {
     music.stop();
@@ -237,6 +241,7 @@ function checkOverlap(bird) {
   }
 }
 
+//Leveling up as you go further
 function checkLevel(){
   if (numberOfObjectsLeftScreen >= levelThreshold){
     level += 1
@@ -244,6 +249,7 @@ function checkLevel(){
   }
 }
 
+//Showing the level number on screen
 function displayLevel(){
   push();
   textSize(50);
