@@ -194,3 +194,21 @@ function checkOffscreen() {
     state = `gameOver`;
   }
 }
+
+function isOffscreen(user) {
+  if (user.x < 0 || user.y < 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function checkOverlap(bird) {
+  // Check if the user and bird overlap
+  let d = dist(user.x,user.y,bird.x,bird.y);
+  if (d < user.size/3 + bird.size/3) {
+    bark.play();
+    state = `gameOver`;
+  }
+}
