@@ -12,7 +12,7 @@ Fly Safely!
 
 // Loading in all images and sounds
 function preload() {
-  music = loadSound('assets/sounds/bark.wav');
+  music = loadSound('assets/sounds/flying-music.wav');
   bark = loadSound('assets/sounds/bark.wav');
 
   buildingImages[0] = loadImage("assets/images/b-1.png");
@@ -114,3 +114,12 @@ function simulation() {
       wrap(birds[i])
     };
   }
+
+  for (let i=0; i<buildings.length; i++){
+    if (checkTouch(buildings[i]) === true){
+      //music.stop();
+      state = 'gameOver'
+    }
+  }
+
+}
