@@ -26,7 +26,29 @@ function preload() {
   backgroundImage = loadImage("assets/images/bg.png");
 }
 
+
 // Making the base elements
 function setup() {
 // Creating the size of the canvas
   createCanvas(1050,500);
+
+  //create the user
+  user = new User();
+
+  //define the user x position
+  user.x = width/8;
+  user.y = 0;
+
+  //set the initial buildings in the buildings array
+  for (let i = 0; i<numberOfBuildings; i++){
+    building = new Building(10+random(15,200)*i,random(50,200),random(100,450),buildingImages[int(random(0,buildingImages.length))]);
+    buildings.push(building);
+  }
+
+  //create the birds in the game
+  for (let i = 0; i<numberOfBirds; i++){
+    bird = new Bird(random(300,width),random(0,height/9), random(0,360),birdImage);
+    birds.push(bird);
+  }
+
+}
