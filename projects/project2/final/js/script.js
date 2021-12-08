@@ -9,6 +9,27 @@ are at, the faster you will go.
 Fly Safely!
 */
 
+"use strict";
+
+let music;
+let bark;
+let user;
+let building;
+let bird;
+let numberOfBuildings = 10;
+let numberOfBirds = 5;
+let buildings = [];
+let birds = [];
+let state = 'title';
+let buildingImages = [];
+let birdImage;
+let userImage;
+let backgroundImage;
+let level = 0;
+//level threshold is the number of buildings that need to leave the screen before the level goes up
+let levelThreshold = 10;
+let numberOfObjectsLeftScreen = 0;
+
 
 // Loading in all images and sounds
 function preload() {
