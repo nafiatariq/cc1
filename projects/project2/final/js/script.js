@@ -10,6 +10,7 @@ Fly Safely!
 */
 
 
+// Loading in all images and sounds
 function preload() {
   music = loadSound('assets/sounds/bark.wav');
   bark = loadSound('assets/sounds/bark.wav');
@@ -24,3 +25,8 @@ function preload() {
 
   backgroundImage = loadImage("assets/images/bg.png");
 }
+
+// Making the base elements
+function setup() {
+// Creating the size of the canvas
+  createCanvas(1050,500);
