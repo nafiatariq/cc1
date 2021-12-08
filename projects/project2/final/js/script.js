@@ -117,7 +117,7 @@ function simulation() {
 
   for (let i=0; i<buildings.length; i++){
     if (checkTouch(buildings[i]) === true){
-      //music.stop();
+      music.stop();
       state = 'gameOver'
     }
   }
