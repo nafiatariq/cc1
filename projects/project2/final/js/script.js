@@ -182,3 +182,15 @@ function mousePressed() {
     state = `title`;
   }
 }
+
+function wrap(object){
+  //reset the object position to the width of the canvas
+  object.x = width;
+}
+
+function checkOffscreen() {
+  // Check if the user have gone offscreen
+  if (isOffscreen(user)) {
+    state = `gameOver`;
+  }
+}
