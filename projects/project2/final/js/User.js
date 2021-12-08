@@ -1,4 +1,4 @@
-// Creating the user
+//Creating the user
 class User {
 
   constructor(){
@@ -10,7 +10,7 @@ class User {
     this.velocity = 0;
   }
 
-// Making the User look like a plane
+//Making the User look like a plane
   display(){
     push();
     fill(this.fill);
@@ -18,7 +18,7 @@ class User {
     pop();
   }
 
-// Moving the user with the UP and DOWN arrows
+//Moving the user with the UP and DOWN arrows
   move(){
     if (keyIsDown(38)){
       this.y -= this.vy
