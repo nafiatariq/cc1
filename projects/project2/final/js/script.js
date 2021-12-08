@@ -121,5 +121,14 @@ function simulation() {
       state = 'gameOver'
     }
   }
+}
 
+function leftScreenBuilding(object) {
+  if (object.x <= 0-object.width){
+    numberOfObjectsLeftScreen += 1
+    return true
+  }
+  else{
+    return false
+  };
 }
